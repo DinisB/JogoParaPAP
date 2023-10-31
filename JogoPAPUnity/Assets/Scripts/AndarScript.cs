@@ -9,11 +9,15 @@ public class AndarScript : MonoBehaviour
     private float direction = 0f;
     private Rigidbody2D player;
     private bool isGrounded;
+    private Animator playeranim;
+    private SpriteRenderer sr;
 
     // Start is called before the first frame update
     void Start()
     {
+        playeranim = GetComponent<Animator>();
         player = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -21,6 +25,7 @@ public class AndarScript : MonoBehaviour
         if (collision.gameObject.CompareTag("ground"))
         {
             isGrounded = true;
+            playeranim.SetBool("Jump", false);
         }
     }
 
@@ -40,20 +45,27 @@ public class AndarScript : MonoBehaviour
         if (direction > 0f)
         {
             player.velocity = new Vector2(direction * speed, player.velocity.y);
+            playeranim.SetBool("Walk", true);
+            sr.flipX = false;
         }
         else if (direction < 0f)
         {
             player.velocity = new Vector2(direction * speed, player.velocity.y);
+            playeranim.SetBool("Walk", true);
+            sr.flipX = true;
         }
         else
         {
             player.velocity = new Vector2(0, player.velocity.y);
+            playeranim.SetBool("Walk", false);
         }
+
 
         if (Input.GetButtonDown("Jump"))
         {
             if (isGrounded)
             {
+                playeranim.SetBool("Jump", true);
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             }
         }
