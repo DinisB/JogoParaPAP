@@ -9,6 +9,8 @@ public class AndarScript : MonoBehaviour
     private float direction = 0f;
     private Rigidbody2D player;
     private bool isGrounded;
+    private bool isAttacking;
+    private bool CanWalk = true;
     private Animator playeranim;
     private SpriteRenderer sr;
 
@@ -40,7 +42,9 @@ public class AndarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        direction = Input.GetAxis("Horizontal");
+        if (CanWalk){
+            direction = Input.GetAxis("Horizontal");
+        }
 
         if (direction > 0f)
         {
@@ -68,6 +72,25 @@ public class AndarScript : MonoBehaviour
                 playeranim.SetBool("Jump", true);
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             }
+        }
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if (isAttacking){
+
+            }
+            else {
+                StartCoroutine(AttackAnime());
+            }
+        }
+        IEnumerator AttackAnime(){
+            CanWalk = false;
+            isAttacking = true;
+            direction = 0f;
+            playeranim.SetBool("Attack", true);
+            yield return new WaitForSeconds(0.5f);
+            playeranim.SetBool("Attack", false);
+            isAttacking = false;
+            CanWalk = true;
         }
     }
 }
