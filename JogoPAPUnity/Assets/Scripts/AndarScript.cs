@@ -13,6 +13,7 @@ public class AndarScript : MonoBehaviour
     private bool CanWalk = true;
     private Animator playeranim;
     private SpriteRenderer sr;
+    public BoxCollider2D ataquedireita;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +84,7 @@ public class AndarScript : MonoBehaviour
             }
         }
         IEnumerator AttackAnime(){
+            ataquedireita.isTrigger = false;
             CanWalk = false;
             isAttacking = true;
             direction = 0f;
@@ -91,6 +93,7 @@ public class AndarScript : MonoBehaviour
             playeranim.SetBool("Attack", false);
             isAttacking = false;
             CanWalk = true;
+            ataquedireita.isTrigger = true;
         }
     }
 }
