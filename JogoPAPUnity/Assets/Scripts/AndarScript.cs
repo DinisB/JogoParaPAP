@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AndarScript : MonoBehaviour
 {
     public float speed = 5f;
+    public float vida = 3;
+    public float maxvida = 3;
+    public int directionattack = 1;
     public float jumpSpeed = 8f;
     private float direction = 0f;
     private Rigidbody2D player;
@@ -13,14 +17,22 @@ public class AndarScript : MonoBehaviour
     private bool CanWalk = true;
     private Animator playeranim;
     private SpriteRenderer sr;
-    public BoxCollider2D ataquedireita;
+    public GameObject ataquedireita;
+    public GameObject ataqueesquerda;
+    public GameObject cora1;
+    public GameObject cora2;
+    public GameObject cora3;
+    public string sceneName = "Titulo";
 
     // Start is called before the first frame update
     void Start()
     {
+        isGrounded = false;
         playeranim = GetComponent<Animator>();
         player = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        playeranim.SetBool("Jump", true);
+        playeranim.SetBool("Walk", false);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -29,6 +41,11 @@ public class AndarScript : MonoBehaviour
         {
             isGrounded = true;
             playeranim.SetBool("Jump", false);
+        }
+
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            vida -= 1;
         }
     }
 
@@ -47,16 +64,40 @@ public class AndarScript : MonoBehaviour
             direction = Input.GetAxis("Horizontal");
         }
 
+        if (vida ==3){
+            cora1.SetActive(true);
+            cora2.SetActive(true);
+            cora3.SetActive(true);
+        }
+
+        if (vida ==2){
+            cora1.SetActive(true);
+            cora2.SetActive(true);
+            cora3.SetActive(false);
+        }
+
+        if (vida ==1){
+            cora1.SetActive(true);
+            cora2.SetActive(false);
+            cora3.SetActive(false);
+        }
+
+        if (vida ==0){
+            SceneManager.LoadScene(sceneName);
+        }
+
         if (direction > 0f)
         {
             player.velocity = new Vector2(direction * speed, player.velocity.y);
             playeranim.SetBool("Walk", true);
+            directionattack = 1;
             sr.flipX = false;
         }
         else if (direction < 0f)
         {
             player.velocity = new Vector2(direction * speed, player.velocity.y);
             playeranim.SetBool("Walk", true);
+            directionattack = 0;
             sr.flipX = true;
         }
         else
@@ -79,12 +120,16 @@ public class AndarScript : MonoBehaviour
             if (isAttacking){
 
             }
-            else {
-                StartCoroutine(AttackAnime());
+            if (directionattack == 1) {
+                StartCoroutine(AttackAnimeDireita());
+            }
+
+            if (directionattack == 0) {
+                StartCoroutine(AttackAnimeEsquerda());
             }
         }
-        IEnumerator AttackAnime(){
-            ataquedireita.isTrigger = false;
+        IEnumerator AttackAnimeDireita(){
+            ataquedireita.SetActive(true);
             CanWalk = false;
             isAttacking = true;
             direction = 0f;
@@ -93,7 +138,20 @@ public class AndarScript : MonoBehaviour
             playeranim.SetBool("Attack", false);
             isAttacking = false;
             CanWalk = true;
-            ataquedireita.isTrigger = true;
+            ataquedireita.SetActive(false);
+        }
+
+        IEnumerator AttackAnimeEsquerda(){
+            ataqueesquerda.SetActive(true);
+            CanWalk = false;
+            isAttacking = true;
+            direction = 0f;
+            playeranim.SetBool("Attack", true);
+            yield return new WaitForSeconds(0.5f);
+            playeranim.SetBool("Attack", false);
+            isAttacking = false;
+            CanWalk = true;
+            ataqueesquerda.SetActive(false);
         }
     }
 }
