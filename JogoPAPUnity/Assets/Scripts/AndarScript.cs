@@ -46,6 +46,32 @@ public class AndarScript : MonoBehaviour
         if (collision.gameObject.CompareTag("enemy"))
         {
             vida -= 1;
+            player.velocity = new Vector2(player.velocity.x, 4);
+            CanWalk = false;
+            direction = 0f;
+            playeranim.SetBool("Hurt", true);
+            if ((this.transform.position.x - collision.collider.transform.position.x) < 0) {
+                StartCoroutine(HurtDireita());
+            }
+            if ((this.transform.position.x - collision.collider.transform.position.x) > 0) {
+                StartCoroutine(HurtEsquerda());
+            }
+            IEnumerator HurtDireita(){
+                direction = -1f;
+                playeranim.Play("Hurt");
+                yield return new WaitForSeconds(0.6f);
+                direction = 0f;
+                playeranim.SetBool("Hurt", false);
+                CanWalk = true;
+        }
+            IEnumerator HurtEsquerda(){
+                direction = 1f;
+                playeranim.Play("Hurt");
+                yield return new WaitForSeconds(0.6f);
+                direction = 0f;
+                playeranim.SetBool("Hurt", false);
+                CanWalk = true;
+        }
         }
     }
 
@@ -134,7 +160,7 @@ public class AndarScript : MonoBehaviour
             isAttacking = true;
             direction = 0f;
             playeranim.SetBool("Attack", true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.65f);
             playeranim.SetBool("Attack", false);
             isAttacking = false;
             CanWalk = true;
@@ -147,7 +173,7 @@ public class AndarScript : MonoBehaviour
             isAttacking = true;
             direction = 0f;
             playeranim.SetBool("Attack", true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.65f);
             playeranim.SetBool("Attack", false);
             isAttacking = false;
             CanWalk = true;

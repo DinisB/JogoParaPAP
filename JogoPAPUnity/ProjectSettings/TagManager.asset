@@ -7,6 +7,8 @@ TagManager:
   - ground
   - enemy
   - attack
+  - Waypoint1
+  - Waypoint2
   layers:
   - Default
   - TransparentFX
