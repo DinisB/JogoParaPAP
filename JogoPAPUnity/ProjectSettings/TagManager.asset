@@ -7,8 +7,7 @@ TagManager:
   - ground
   - enemy
   - attack
-  - Waypoint1
-  - Waypoint2
+  - restaura
   layers:
   - Default
   - TransparentFX

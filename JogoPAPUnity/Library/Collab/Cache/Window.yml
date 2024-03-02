@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe70aba2e7074048aca5de573b64a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSelectedItems:
+    m_Keys:
+    - .collabignore
+    - Assets/Animations.meta
+    - Assets/Animations/aranha andar.anim
+    - Assets/Animations/aranha andar.anim.meta
+    - Assets/Animations/aranha.controller
+    - Assets/Animations/aranha.controller.meta
+    - Assets/Animations/mareleen andar.anim
+    - Assets/Animations/mareleen andar.anim.meta
+    - Assets/Animations/marleen ataca.anim
+    - Assets/Animations/marleen ataca.anim.meta
+    - Assets/Animations/marleen magoada.anim
+    - Assets/Animations/marleen magoada.anim.meta
+    - Assets/Animations/marleen parada.anim
+    - Assets/Animations/marleen parada.anim.meta
+    - Assets/Animations/marleen saltar.anim
+    - Assets/Animations/marleen saltar.anim.meta
+    - Assets/Animations/marleen-andar1_png.controller
+    - Assets/Animations/marleen-andar1_png.controller.meta
+    - Assets/FullMetal Alchemist Dual Sympathy Intro Music (Melissa Instrumental).mp3
+    - Assets/FullMetal Alchemist Dual Sympathy Intro Music (Melissa Instrumental).mp3.meta
+    - Assets/Scenes.meta
+    - Assets/Scenes/Teste Fisicas.unity
+    - Assets/Scenes/Teste Fisicas.unity.meta
+    - Assets/Scenes/Titulo.unity
+    - Assets/Scenes/Titulo.unity.meta
+    - Assets/Scripts.meta
+    - Assets/Scripts/AndarScript.cs
+    - Assets/Scripts/AndarScript.cs.meta
+    - Assets/Scripts/CamaraScript.cs
+    - Assets/Scripts/CamaraScript.cs.meta
+    - Assets/Scripts/InimigoScript.cs
+    - Assets/Scripts/InimigoScript.cs.meta
+    - Assets/Slip.physicsMaterial2D
+    - Assets/Slip.physicsMaterial2D.meta
+    - Assets/Sprites.meta
+    - Assets/Sprites/anna purr.png
+    - Assets/Sprites/anna purr.png.meta
+    - Assets/Sprites/grade.png
+    - Assets/Sprites/grade.png.meta
+    - Assets/Sprites/imageedit_1_7556750736.png
+    - Assets/Sprites/imageedit_1_7556750736.png.meta
+    - Assets/Sprites/imageedit_4_9962433338.png
+    - Assets/Sprites/imageedit_4_9962433338.png.meta
+    - Assets/Sprites/iniciar.png
+    - Assets/Sprites/iniciar.png.meta
+    - Assets/Sprites/marleen atacar 1.png
+    - Assets/Sprites/marleen atacar 1.png.meta
+    - Assets/Sprites/marleen atacar 2.png
+    - Assets/Sprites/marleen atacar 2.png.meta
+    - Assets/Sprites/marleen saltar-1.png-1.png.png
+    - Assets/Sprites/marleen saltar-1.png-1.png.png.meta
+    - Assets/Sprites/marleen saltar-1.png.png
+    - Assets/Sprites/marleen saltar-1.png.png.meta
+    - Assets/Sprites/marleen-andar1.png.png
+    - Assets/Sprites/marleen-andar1.png.png.meta
+    - Assets/Sprites/marleen-andar2.png.png
+    - Assets/Sprites/marleen-andar2.png.png.meta
+    - Assets/Sprites/marleen-andar3.png.png
+    - Assets/Sprites/marleen-andar3.png.png.meta
+    - Assets/Sprites/marleen-andar4.png.png
+    - Assets/Sprites/marleen-andar4.png.png.meta
+    - Assets/Sprites/miranha-1.png_1.png
+    - Assets/Sprites/miranha-1.png_1.png.meta
+    - Assets/Sprites/titulo.png
+    - Assets/Sprites/titulo.png.meta
+    - Assets/StreamingAssets.meta
+    - Assets/Undertale_red_soul.svg.png
+    - Assets/Undertale_red_soul.svg.png.meta
+    - Assets/carroagem.mp4
+    - Assets/carroagem.mp4.meta
+    - Assets/marleen-andar1.png-2.png.png
+    - Assets/marleen-andar1.png-2.png.png.meta
+    - Assets/scenemanager.cs
+    - Assets/scenemanager.cs.meta
+    - Packages/manifest.json
+    - Packages/packages-lock.json
+    - ProjectSettings/AudioManager.asset
+    - ProjectSettings/ClusterInputManager.asset
+    - ProjectSettings/DynamicsManager.asset
+    - ProjectSettings/EditorBuildSettings.asset
+    - ProjectSettings/EditorSettings.asset
+    - ProjectSettings/GraphicsSettings.asset
+    - ProjectSettings/InputManager.asset
+    - ProjectSettings/MemorySettings.asset
+    - ProjectSettings/NavMeshAreas.asset
+    - ProjectSettings/Physics2DSettings.asset
+    - ProjectSettings/PresetManager.asset
+    - ProjectSettings/ProjectSettings.asset
+    - ProjectSettings/ProjectVersion.txt
+    - ProjectSettings/QualitySettings.asset
+    - ProjectSettings/TagManager.asset
+    - ProjectSettings/TimeManager.asset
+    - ProjectSettings/UnityConnectSettings.asset
+    - ProjectSettings/VFXManager.asset
+    - ProjectSettings/VersionControlSettings.asset
+    - 
+    m_Values: 010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101
+  RevisionSummary: 
+  ChangesSearchValue: 
+  SelectedHistoryRevision: 
+  HistoryPageNumber: 0
+  TabIndex: 0
