@@ -386,6 +386,7 @@
 "Assets/Scripts/InimigoOuriçoScript1.cs"
 "Assets/Scripts/InimigoScript.cs"
 "Assets/Scripts/InimigoVoadorScript.cs"
+"Assets/Scripts/TextPersonagens.cs"
 -langversion:9.0
 
 /deterministic

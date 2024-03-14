@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 7870693402712221551}
   m_Layer: 7
   m_Name: Personagem
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -405,6 +405,9 @@ MonoBehaviour:
   cora2: {fileID: 0}
   cora3: {fileID: 0}
   PlayerHurt: 0
+  saltarsom: {fileID: 0}
+  atacarsom: {fileID: 0}
+  magoadosom: {fileID: 0}
 --- !u!1 &7870693402758589959
 GameObject:
   m_ObjectHideFlags: 0
