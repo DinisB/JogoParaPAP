@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class AndarScript : MonoBehaviour
 {
@@ -27,6 +26,9 @@ public class AndarScript : MonoBehaviour
     public GameObject cora2;
     public GameObject cora3;
     public bool PlayerHurt = false;
+    public AudioSource saltarsom;
+    public AudioSource atacarsom;
+    public AudioSource magoadosom;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +64,7 @@ public class AndarScript : MonoBehaviour
                 StartCoroutine(HurtEsquerda());
             }
             IEnumerator HurtDireita(){
+                magoadosom.Play();
                 direction = -1f;
                 playeranim.Play("Hurt");
                 yield return new WaitForSeconds(0.6f);
@@ -71,6 +74,7 @@ public class AndarScript : MonoBehaviour
                 PlayerHurt = false;
         }
             IEnumerator HurtEsquerda(){
+                magoadosom.Play();
                 direction = 1f;
                 playeranim.Play("Hurt");
                 yield return new WaitForSeconds(0.6f);
@@ -156,22 +160,23 @@ public class AndarScript : MonoBehaviour
             {
                 playeranim.SetBool("Jump", true);
                 player.velocity = new Vector2(player.velocity.x, jumpSpeed);
+                saltarsom.Play();
             }
         }
         if (Input.GetButtonDown("Fire1"))
         {
             if (isAttacking){
-
             }
-            if (directionattack == 1) {
+            if (directionattack == 1 && isAttacking == false) {
                 StartCoroutine(AttackAnimeDireita());
             }
 
-            if (directionattack == 0) {
+            if (directionattack == 0 && isAttacking == false) {
                 StartCoroutine(AttackAnimeEsquerda());
             }
         }
         IEnumerator AttackAnimeDireita(){
+            atacarsom.Play();
             ataquedireita.SetActive(true);
             CanWalk = false;
             isAttacking = true;
@@ -185,6 +190,7 @@ public class AndarScript : MonoBehaviour
         }
 
         IEnumerator AttackAnimeEsquerda(){
+            atacarsom.Play();
             ataqueesquerda.SetActive(true);
             CanWalk = false;
             isAttacking = true;
