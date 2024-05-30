@@ -325,8 +325,14 @@
 "Assets/Scripts/AndarScript.cs"
 "Assets/Scripts/BolinhasScript.cs"
 "Assets/Scripts/CamaraScript.cs"
+"Assets/Scripts/FantasmaScript.cs"
+"Assets/Scripts/InimigoOuriçoScript1.cs"
 "Assets/Scripts/InimigoScript.cs"
 "Assets/Scripts/InimigoVoadorScript.cs"
+"Assets/Scripts/KeepVariables.cs"
+"Assets/Scripts/ProxNivel.cs"
+"Assets/Scripts/ProxNivel1.cs"
+"Assets/Scripts/TextPersonagens.cs"
 -langversion:9.0
 
 /deterministic

@@ -25,14 +25,22 @@ public class AndarScript : MonoBehaviour
     public GameObject cora1;
     public GameObject cora2;
     public GameObject cora3;
-    public bool PlayerHurt = false;
     public AudioSource saltarsom;
     public AudioSource atacarsom;
     public AudioSource magoadosom;
+    public bool PlayerHurt = false;
+    public GameObject backup;
 
     // Start is called before the first frame update
     void Start()
     {
+        backup = GameObject.Find("/Keep vars");
+        if (backup == null) {
+            vida = 3;
+        }
+        else {
+            vida = backup.GetComponent<KeepVariables>().vidabackup;
+        }
         isGrounded = false;
         playeranim = GetComponent<Animator>();
         player = GetComponent<Rigidbody2D>();
@@ -42,17 +50,18 @@ public class AndarScript : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("ground"))
         {
-            isGrounded = true;
-            playeranim.SetBool("Jump", false);
-        }
+            if (collision.gameObject.CompareTag("ground"))
+            {
+                isGrounded = true;
+                playeranim.SetBool("Jump", false);
+            }
 
-        if (collision.gameObject.CompareTag("enemy") && (PlayerHurt == false))
+
+        if (collision.gameObject.CompareTag("enemy") && PlayerHurt == false)
         {
-            PlayerHurt = true;
             vida -= 1;
+            PlayerHurt = true;
             player.velocity = new Vector2(player.velocity.x, 4);
             CanWalk = false;
             direction = 0f;
@@ -85,6 +94,14 @@ public class AndarScript : MonoBehaviour
         }
         }
     }
+
+    void OnCollisionStay2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("ground"))
+            {
+                isGrounded = true;
+            }
+        }
 
     void OnCollisionExit2D(Collision2D collision)
     {
@@ -129,6 +146,9 @@ public class AndarScript : MonoBehaviour
         }
 
         if (vida ==0){
+            cora1.SetActive(false);
+            cora2.SetActive(false);
+            cora3.SetActive(false);
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             playerobj.SetActive(false);
         }
