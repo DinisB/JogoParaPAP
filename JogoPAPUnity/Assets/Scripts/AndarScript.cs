@@ -30,6 +30,7 @@ public class AndarScript : MonoBehaviour
     public AudioSource magoadosom;
     public bool PlayerHurt = false;
     public GameObject backup;
+    private GameObject musica;
 
     // Start is called before the first frame update
     void Start()
@@ -149,6 +150,8 @@ public class AndarScript : MonoBehaviour
             cora1.SetActive(false);
             cora2.SetActive(false);
             cora3.SetActive(false);
+            musica = GameObject.FindWithTag("musica");
+            Destroy(musica);
             Instantiate(projectilePrefab, transform.position, Quaternion.identity);
             playerobj.SetActive(false);
         }
